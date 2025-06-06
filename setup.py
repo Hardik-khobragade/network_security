@@ -22,4 +22,11 @@ def get_requirements()-> List[str]:
 print(get_requirements())
 
 
-    
+setup(
+    name="networksecurity",
+    version="0.1.0",
+    author="Hardik Khobragade",
+    author_email="hardikkhobragade78@gmail.com",
+    packages=find_packages(),
+    install_requires=get_requirements(),
+)

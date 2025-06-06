@@ -17,8 +17,10 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
-if __name__=="__main__":
+if __name__ == "__main__":
     try:
-        pass
-    except:
-        pass
+        logger.info("This is a test log message.")
+        print(f"Log file created at: {LOG_FILE_PATH}")
+    except Exception as e:
+        logger.error(f"An error occurred: {e}")
+        print(f"Error: {e}")
