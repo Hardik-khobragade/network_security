@@ -1,0 +1,5 @@
+2025-06-07 16:02:53,812 [INFO] root: Initiate the data ingestion
+2025-06-07 16:03:05,701 [INFO] root: Performed train test split
+2025-06-07 16:03:05,701 [INFO] root: Exited split_data_as_train_test method on DataIngestion class
+2025-06-07 16:03:05,702 [INFO] root: Exporting train and test file path
+2025-06-07 16:03:05,794 [INFO] root: Exporting train and test file path
