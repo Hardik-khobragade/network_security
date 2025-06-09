@@ -21,7 +21,7 @@ MONGODB_url=os.getenv('MongoDB_url')
 class DataIngestion:
     def __init__(self,data_ingestion_config : DataIngestionConfig):
         try:
-            
+
             self.data_ingestion_config=data_ingestion_config
             
         except Exception as e:
@@ -81,9 +81,10 @@ class DataIngestion:
             self.split_data_as_train_test(dataframe)
             
             dataingestionartifact=DataIngestionArtifacts(
-                traned_file_path=self.data_ingestion_config.training_file_path,
+                training_file_path=self.data_ingestion_config.training_file_path,
                 testing_file_path=self.data_ingestion_config.testing_file_path
             )
+
             return dataingestionartifact
         except Exception as e:
             raise NetworkSecurityException(e,sys)

@@ -5,25 +5,41 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(
 from network_security.exception import NetworkSecurityException
 from network_security.logging import logging
 from network_security.components.data_ingestion import DataIngestion
-from network_security.entity.config_entity import DataIngestionConfig
+from network_security.entity.config_entity import DataIngestionConfig,DataValidationConfig
 from network_security.entity.config_entity import TrainingPipelineConfig
 from network_security.entity.artifact_entity import DataIngestionArtifacts
-
+from network_security.components.data_validation import DataValidation
 
 
 
 if __name__=='__main__':
     try:
-        trainingpipelineconfig=TrainingPipelineConfig()
-        dataingestionconfig=DataIngestionConfig(trainingpipelineconfig) 
-        dataingestion=DataIngestion(dataingestionconfig)
+        training_pipeline_config=TrainingPipelineConfig()
+        data_ingestion_config=DataIngestionConfig(training_pipeline_config) 
+        data_ingestion=DataIngestion(data_ingestion_config)
         logging.info("Initiate the data ingestion")   
+        data_ingestion_artifacts=data_ingestion.initiate_data_ingestion()
         
-        dataingestionartifacts=dataingestion.initiate_data_ingestion()
+       
         
-
-        print(dataingestionartifacts)
+        # print(data_ingestion_artifacts)
+        # logging.info("data ingestion completed")
+        # datavalidationconfig=DataValidationConfig(training_pipeline_config=training_pipeline_config)
+        # data_validation=DataValidation(data_ingestion_artifacts=datavalidationconfig,data_validation_config=datavalidationconfig)
+        # logging.info("Initiate data validation")
+        # data_validation.initiate_data_validation()
+        # logging.info("Data validation complete")
         
+        data_ingestion_artifacts = data_ingestion.initiate_data_ingestion()
+        print(data_ingestion_artifacts)
+        logging.info("data ingestion completed")
+        datavalidationconfig = DataValidationConfig(training_pipeline_config=training_pipeline_config)
+        data_validation = DataValidation(
+            data_ingestion_artifacts=data_ingestion_artifacts,  
+            data_validation_config=datavalidationconfig)
+        logging.info("Initiate data validation")
+        data_validation.initiate_data_validation()
+        logging.info("Data validation complete")
     
     except Exception as e:
         raise NetworkSecurityException(e,sys)
