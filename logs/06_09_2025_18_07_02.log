@@ -1,0 +1,17 @@
+2025-06-09 18:07:16,795 [INFO] root: Initiate the data ingestion
+2025-06-09 18:07:29,993 [INFO] root: Performed train test split
+2025-06-09 18:07:29,993 [INFO] root: Exited split_data_as_train_test method on DataIngestion class
+2025-06-09 18:07:29,994 [INFO] root: Exporting train and test file path
+2025-06-09 18:07:30,084 [INFO] root: Exporting train and test file path
+2025-06-09 18:07:38,234 [INFO] root: Performed train test split
+2025-06-09 18:07:38,234 [INFO] root: Exited split_data_as_train_test method on DataIngestion class
+2025-06-09 18:07:38,235 [INFO] root: Exporting train and test file path
+2025-06-09 18:07:38,325 [INFO] root: Exporting train and test file path
+2025-06-09 18:07:38,326 [INFO] root: data ingestion completed
+2025-06-09 18:07:38,341 [INFO] root: Initiate data validation
+2025-06-09 18:07:38,424 [INFO] root: Number of columns shoulbe be 2
+2025-06-09 18:07:38,424 [INFO] root: The number of columns in dataframe 31
+2025-06-09 18:07:38,425 [INFO] root: Number of columns shoulbe be 2
+2025-06-09 18:07:38,425 [INFO] root: The number of columns in dataframe 31
+2025-06-09 18:07:38,664 [INFO] root: Data validation complete
+2025-06-09 18:07:38,664 [INFO] root: Data transformation initiate
