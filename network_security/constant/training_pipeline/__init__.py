@@ -6,12 +6,17 @@ import numpy as np
 """
 defining comman constants variable for training pipeline
 """
-TRAGET_COLUMN = "Results"
+TRAGET_COLUMN = "Result"
 PIPELINE_NAME : str ='NetworkSecurity'
 ARTIFACTS_DIR : str ='Artifacts'
 FILE_NAME :str = 'phisingData.csv'
 TRAIN_FILE_NAME : str='train.csv'
 TEST_FILE_NAME: str='test.csv'
+
+
+SCHEMA_FILE_PATH=os.path.join("data_schema",'schema.yaml')
+SAVE_MODEL_DIR=os.path.join('save_model')
+MODEL_FILE_NAME : str ="model.pkl"
 
 """ 
 Data Ingestion related constants 
@@ -32,7 +37,7 @@ Data Validation related constant
 """
 
 
-SCHEMA_FILE_PATH=os.path.join("data_schema",'schema.yaml')
+
 
 DATA_VALIDATION_DIR_NAME : str = "data_validation"
 DATA_VALIDATION_VALID_DIR : str = "validated"
@@ -57,3 +62,13 @@ DATA_TRANSFORMATION_IMPUTE_PARAMS : dict ={
     "weights":"uniform",
 }
 
+"""
+Model traning related constant variables
+"""
+
+MODEL_TRAINING_DIR_NAME : str ="model_trainer"
+MODEL_TRAINING_TRAIN_MODEL_DIR: str ="trained_model"
+
+MODEL_TRAINING_TRAIN_MODEL_NAME: str = "model.pkl"
+MODEL_TRAINING_EXPECTED_SCORE: float = 0.6
+MODEL_TRAINING_OVERFITTING_UNDERFITTING_THERSHOLD: float  = 0.05

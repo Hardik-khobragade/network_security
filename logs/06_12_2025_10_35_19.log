@@ -1,0 +1,28 @@
+2025-06-12 10:35:22,806 [INFO] root: Initiate the data ingestion
+2025-06-12 10:36:07,869 [INFO] root: Performed train test split
+2025-06-12 10:36:07,870 [INFO] root: Exited split_data_as_train_test method on DataIngestion class
+2025-06-12 10:36:07,870 [INFO] root: Exporting train and test file path
+2025-06-12 10:36:07,973 [INFO] root: Exporting train and test file path
+2025-06-12 10:36:33,245 [INFO] root: Performed train test split
+2025-06-12 10:36:33,245 [INFO] root: Exited split_data_as_train_test method on DataIngestion class
+2025-06-12 10:36:33,246 [INFO] root: Exporting train and test file path
+2025-06-12 10:36:33,344 [INFO] root: Exporting train and test file path
+2025-06-12 10:36:33,345 [INFO] root: data ingestion completed
+2025-06-12 10:36:33,364 [INFO] root: Initiate data validation
+2025-06-12 10:36:33,467 [INFO] root: Number of columns shoulbe be 2
+2025-06-12 10:36:33,467 [INFO] root: The number of columns in dataframe 31
+2025-06-12 10:36:33,467 [INFO] root: Number of columns shoulbe be 2
+2025-06-12 10:36:33,467 [INFO] root: The number of columns in dataframe 31
+2025-06-12 10:36:33,744 [INFO] root: Data validation complete
+2025-06-12 10:36:33,744 [INFO] root: Data transformation initiate
+2025-06-12 10:36:33,744 [INFO] root: Entereed the data transformation class
+2025-06-12 10:36:33,744 [INFO] root: Started data Transformation
+2025-06-12 10:36:33,787 [INFO] root: Entered get_data_trnasformer_object method of Trnasformation class
+2025-06-12 10:36:33,787 [INFO] root: Initialise KNNImputer with {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+2025-06-12 10:36:33,819 [INFO] root: Data tranformation complete
+2025-06-12 10:36:33,820 [INFO] root: Model training initiated
+2025-06-12 10:41:20,018 [INFO] root: entered the load_object function
+2025-06-12 10:41:20,038 [INFO] root: Succesfully load the file
+2025-06-12 10:41:20,172 [INFO] root: Model Trainer artifacts ModelTraningArtifacts(trained_model_file_path='Artifacts\\06_12_2025_10_35_20\\data_transformation\\transformed_object\\preprocessing.pkl', train_metrics_artifact=ClassificationMetrixArticfacts(f1_score=0.9907201936655236, precision_score=0.986144578313253, recall_score=0.9953384677746251), test_metrics_artifact=ClassificationMetrixArticfacts(f1_score=0.9793271179570329, precision_score=0.9710610932475884, recall_score=0.9877350776778414))
+2025-06-12 10:41:20,173 [INFO] root: best model: RandomForestClassifier and score 0.9066798309062801
+2025-06-12 10:41:20,179 [INFO] root: Model Training completed

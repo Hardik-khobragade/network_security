@@ -30,17 +30,21 @@ class DataTransformation:
             return pd.read_csv(file_path)    
         except Exception as e:
             raise NetworkSecurityException(e,sys)
-        
+    
     @classmethod
-    def get_tranformation_obj(cls) -> Pipeline:
-        logging('Entered the get_tranformation_obj method ')
+    def get_tranformation_obj(cls)->Pipeline:
+        logging.info(
+            "Entered get_data_trnasformer_object method of Trnasformation class"
+        )
         try:
-            logging('Initiate KNN imputer ')
-            imputer = KNNImputer(**DATA_TRANSFORMATION_IMPUTE_PARAMS)
-            pipeline = Pipeline(steps=[("imputer", imputer)])
-            return pipeline
+           imputer:KNNImputer=KNNImputer(**DATA_TRANSFORMATION_IMPUTE_PARAMS)
+           logging.info(
+                f"Initialise KNNImputer with {DATA_TRANSFORMATION_IMPUTE_PARAMS}"
+            )
+           processor:Pipeline=Pipeline([("imputer",imputer)])
+           return processor
         except Exception as e:
-            raise NetworkSecurityException(e, sys)
+            raise NetworkSecurityException(e,sys)
         
         
     def initiate_data_transformation(self)-> DataTransformationArtifacts:
@@ -64,11 +68,11 @@ class DataTransformation:
             preprocessor=self.get_tranformation_obj()
             
             preprocessor_obj=preprocessor.fit(input_feature_train_df)
-            transformed_train_input_feature=preprocessor_obj.transform(target_feature_train_df)
-            transformed_test_input_feature=preprocessor_obj.transform(target_feature_test_df)
+            transformed_train_input_feature=preprocessor_obj.transform(input_feature_train_df)
+            transformed_test_input_feature=preprocessor_obj.transform(input_feature_test_df)
             
-            train_arr=np.c_[transformed_train_input_feature,np.array[target_feature_train_df]]
-            test_arr=np.c_[transformed_test_input_feature,np.array[target_feature_test_df]]
+            train_arr=np.c_[transformed_train_input_feature,np.array(target_feature_train_df)]
+            test_arr=np.c_[transformed_test_input_feature,np.array(target_feature_test_df)]
             
             #save array
             save_numpy_array_data(self.data_transformation_config.transformed_train_file_path,array=train_arr)
@@ -81,7 +85,8 @@ class DataTransformation:
                 transformed_test_file_path=self.data_transformation_config.transformed_test_file_path,
                 transformed_object_file_path=self.data_transformation_config.transformed_object_file_path
             )
-        
+
+            return data_transformed_artifact
         except Exception as e:
             raise NetworkSecurityException(e,sys)
         
