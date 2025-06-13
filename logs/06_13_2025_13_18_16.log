@@ -1,0 +1,34 @@
+2025-06-13 13:18:31,522 [INFO] httpx: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+2025-06-13 13:18:31,532 [INFO] dagshub: Accessing as hardikkhobragade78
+2025-06-13 13:18:32,089 [INFO] httpx: HTTP Request: GET https://dagshub.com/api/v1/repos/hardikkhobragade78/network_security "HTTP/1.1 200 OK"
+2025-06-13 13:18:32,592 [INFO] httpx: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+2025-06-13 13:18:32,595 [INFO] dagshub: Initialized MLflow to track repo "hardikkhobragade78/network_security"
+2025-06-13 13:18:32,596 [INFO] dagshub: Repository hardikkhobragade78/network_security initialized!
+2025-06-13 13:18:33,063 [INFO] root: Initiate the data ingestion
+2025-06-13 13:18:40,690 [INFO] root: Performed train test split
+2025-06-13 13:18:40,690 [INFO] root: Exited split_data_as_train_test method on DataIngestion class
+2025-06-13 13:18:40,691 [INFO] root: Exporting train and test file path
+2025-06-13 13:18:40,740 [INFO] root: Exporting train and test file path
+2025-06-13 13:18:45,433 [INFO] root: Performed train test split
+2025-06-13 13:18:45,434 [INFO] root: Exited split_data_as_train_test method on DataIngestion class
+2025-06-13 13:18:45,434 [INFO] root: Exporting train and test file path
+2025-06-13 13:18:45,483 [INFO] root: Exporting train and test file path
+2025-06-13 13:18:45,483 [INFO] root: data ingestion completed
+2025-06-13 13:18:45,501 [INFO] root: Initiate data validation
+2025-06-13 13:18:45,545 [INFO] root: Number of columns shoulbe be 2
+2025-06-13 13:18:45,545 [INFO] root: The number of columns in dataframe 31
+2025-06-13 13:18:45,545 [INFO] root: Number of columns shoulbe be 2
+2025-06-13 13:18:45,545 [INFO] root: The number of columns in dataframe 31
+2025-06-13 13:18:45,669 [INFO] root: Data validation complete
+2025-06-13 13:18:45,669 [INFO] root: Data transformation initiate
+2025-06-13 13:18:45,669 [INFO] root: Entereed the data transformation class
+2025-06-13 13:18:45,669 [INFO] root: Started data Transformation
+2025-06-13 13:18:45,687 [INFO] root: Entered get_data_trnasformer_object method of Trnasformation class
+2025-06-13 13:18:45,688 [INFO] root: Initialise KNNImputer with {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+2025-06-13 13:18:45,702 [INFO] root: Data tranformation complete
+2025-06-13 13:18:45,702 [INFO] root: Model training initiated
+2025-06-13 13:20:22,104 [INFO] root: entered the load_object function
+2025-06-13 13:20:22,113 [INFO] root: Succesfully load the file
+2025-06-13 13:20:22,220 [INFO] root: Model Trainer artifacts ModelTraningArtifacts(trained_model_file_path='Artifacts\\06_13_2025_13_18_20\\model_trainer\\model.pkl\\model.pkl', train_metrics_artifact=ClassificationMetrixArticfacts(f1_score=0.9911324024054633, precision_score=0.9886132574217161, recall_score=0.9936644185571224), test_metrics_artifact=ClassificationMetrixArticfacts(f1_score=0.9749412685982772, precision_score=0.9651162790697675, recall_score=0.9849683544303798))
+2025-06-13 13:20:22,220 [INFO] root: best model: RandomForestClassifier and score 0.8817852512263912
+2025-06-13 13:20:22,222 [INFO] root: Model Training completed

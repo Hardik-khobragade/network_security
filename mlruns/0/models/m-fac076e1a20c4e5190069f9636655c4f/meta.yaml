@@ -1,0 +1,10 @@
+artifact_location: file:///d:/MLDL in UDemy/NetworkSecurity/mlruns/0/models/m-fac076e1a20c4e5190069f9636655c4f/artifacts
+creation_timestamp: 1749801019204
+experiment_id: '0'
+last_updated_timestamp: 1749801022088
+model_id: m-fac076e1a20c4e5190069f9636655c4f
+model_type: null
+name: model
+source_run_id: 98d1657771434a9783a7fd0f3050411f
+status: 2
+status_message: null

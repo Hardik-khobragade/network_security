@@ -9,7 +9,7 @@ from network_security.components.data_transformation import DataTransformation
 from network_security.components.model_training import ModelTraner
 from network_security.entity.config_entity import DataIngestionConfig,DataValidationConfig,DataTransformationConfig,ModelTraninerConfig
 from network_security.entity.config_entity import TrainingPipelineConfig
-from network_security.entity.artifact_entity import DataIngestionArtifacts,ModelTraningArtifacts
+# from network_security.entity.artifact_entity import DataIngestionArtifacts,ModelTraningArtifacts
 from network_security.components.data_validation import DataValidation
 
 

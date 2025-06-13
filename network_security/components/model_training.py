@@ -1,6 +1,12 @@
 import os
 import sys 
 import mlflow
+import dagshub
+
+mlflow.set_tracking_uri("file:///d:/MLDL in UDemy/NetworkSecurity/mlruns")
+dagshub.init(repo_owner='hardikkhobragade78', repo_name='network_security', mlflow=True)
+
+# mlflow.set_tracking_uri("https://dagshub.com/hardikkhobragade78/network_security.mlflow")
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from network_security.exception import NetworkSecurityException
@@ -46,41 +52,42 @@ class ModelTraner:
             mlflow.log_metric("precision_score", precision_score)
             mlflow.log_metric("recall_score", recall_score)
         
-            mlflow.sklearn.log_model(best_model,'model')
-            
+            mlflow.sklearn.log_model(best_model, name='model')
+    
+    
             
     def train_model(self, X_train, y_train,X_test,y_test):
         try:
             model = {
-                "LinearRegression": LinearRegression(),
-                "DecisionTreeClassifier": DecisionTreeClassifier(),
-                "KNeighborsClassifier": KNeighborsClassifier(),
-                "AdaBoostClassifier": AdaBoostClassifier(),
-                "GradientBoostingClassifier": GradientBoostingClassifier(),
-                "RandomForestClassifier": RandomForestClassifier()
+                #"LinearRegression": LinearRegression(),
+                # "DecisionTreeClassifier": DecisionTreeClassifier(),
+                # "KNeighborsClassifier": KNeighborsClassifier(),
+                # "AdaBoostClassifier": AdaBoostClassifier(),
+                # "GradientBoostingClassifier": GradientBoostingClassifier(),
+                 "RandomForestClassifier": RandomForestClassifier()
             }
             
             params = {
-                "LinearRegression": {},
-                "DecisionTreeClassifier": {
-                "criterion": ["gini", "entropy"],
-                # "max_depth": [None, 10, 20, 30],
-                # "min_samples_split": [2, 5, 10]
-                },
-                "KNeighborsClassifier": {
-                "n_neighbors": [3, 5, 7],
-                # "weights": ["uniform", "distance"],
-                # "algorithm": ["auto", "ball_tree", "kd_tree", "brute"]
-                },
-                "AdaBoostClassifier": {
-                "n_estimators": [50, 100, 200],
-                "learning_rate": [0.01, 0.1, 1.0]
-                },
-                "GradientBoostingClassifier": {
-                # "n_estimators": [100, 150, 200],
-                "learning_rate": [0.01, 0.1, 0.2],
-                # "max_depth": [3, 5, 7]
-                },
+                #"LinearRegression": {},
+                # "DecisionTreeClassifier": {
+                # "criterion": ["gini", "entropy"],
+                # # "max_depth": [None, 10, 20, 30],
+                # # "min_samples_split": [2, 5, 10]
+                # },
+                # "KNeighborsClassifier": {
+                # "n_neighbors": [3, 5, 7],
+                # # "weights": ["uniform", "distance"],
+                # # "algorithm": ["auto", "ball_tree", "kd_tree", "brute"]
+                # },
+                # "AdaBoostClassifier": {
+                # "n_estimators": [50, 100, 200],
+                # "learning_rate": [0.01, 0.1, 1.0]
+                # },
+                # "GradientBoostingClassifier": {
+                # # "n_estimators": [100, 150, 200],
+                # "learning_rate": [0.01, 0.1, 0.2],
+                # # "max_depth": [3, 5, 7]
+                # },
                 "RandomForestClassifier": {
                 "n_estimators": [100, 200, 300],
                 "criterion": ["gini", "entropy"],
