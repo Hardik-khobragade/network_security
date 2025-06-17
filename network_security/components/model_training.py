@@ -59,35 +59,35 @@ class ModelTrainer:
     def train_model(self, X_train, y_train,X_test,y_test):
         try:
             model = {
-                # "LinearRegression": LinearRegression(),
-                # "DecisionTreeClassifier": DecisionTreeClassifier(),
-                # "KNeighborsClassifier": KNeighborsClassifier(),
-                # "AdaBoostClassifier": AdaBoostClassifier(),
-                # "GradientBoostingClassifier": GradientBoostingClassifier(),
+                "LinearRegression": LinearRegression(),
+                "DecisionTreeClassifier": DecisionTreeClassifier(),
+                "KNeighborsClassifier": KNeighborsClassifier(),
+                "AdaBoostClassifier": AdaBoostClassifier(),
+                "GradientBoostingClassifier": GradientBoostingClassifier(),
                  "RandomForestClassifier": RandomForestClassifier()
             }
             
             params = {
-                # "LinearRegression": {},
-                # "DecisionTreeClassifier": {
-                # "criterion": ["gini", "entropy"],
-                # "max_depth": [None, 10, 20, 30],
-                # "min_samples_split": [2, 5, 10]
-                # },
-                # "KNeighborsClassifier": {
-                # "n_neighbors": [3, 5, 7],
-                # "weights": ["uniform", "distance"],
-                # "algorithm": ["auto", "ball_tree", "kd_tree", "brute"]
-                # },
-                # "AdaBoostClassifier": {
-                # "n_estimators": [50, 100, 200],
-                # "learning_rate": [0.01, 0.1, 1.0]
-                # },
-                # "GradientBoostingClassifier": {
-                # "n_estimators": [100, 150, 200],
-                # "learning_rate": [0.01, 0.1, 0.2],
-                # "max_depth": [3, 5, 7]
-                # },
+                "LinearRegression": {},
+                "DecisionTreeClassifier": {
+                "criterion": ["gini", "entropy"],
+                "max_depth": [None, 10, 20, 30],
+                "min_samples_split": [2, 5, 10]
+                },
+                "KNeighborsClassifier": {
+                "n_neighbors": [3, 5, 7],
+                "weights": ["uniform", "distance"],
+                "algorithm": ["auto", "ball_tree", "kd_tree", "brute"]
+                },
+                "AdaBoostClassifier": {
+                "n_estimators": [50, 100, 200],
+                "learning_rate": [0.01, 0.1, 1.0]
+                },
+                "GradientBoostingClassifier": {
+                "n_estimators": [100, 150, 200],
+                "learning_rate": [0.01, 0.1, 0.2],
+                "max_depth": [3, 5, 7]
+                },
                 "RandomForestClassifier": {
                 "n_estimators": [100, 200, 300],
                 "criterion": ["gini", "entropy"],
