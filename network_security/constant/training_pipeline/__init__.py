@@ -45,7 +45,7 @@ DATA_VALIDATION_INVALID_DIR : str = "invalid"
 DATA_VALIDATION_DRIFT_REPORT_DIR : str = "drift_report"
 DATA_VALIDATION_DRIFT_REPORT_FILE_NAME : str = "report.yaml"
 
-PREPROCESSING_OBJECT_FILE_NAME : str ="preprocessing.pkl"
+PREPROCESSING_OBJECT_FILE_NAME : str ="preprocessor.pkl"
 """
 Data Transformation related constants 
 
@@ -72,3 +72,6 @@ MODEL_TRAINING_TRAIN_MODEL_DIR: str ="trained_model"
 MODEL_TRAINING_TRAIN_MODEL_NAME: str = "model.pkl"
 MODEL_TRAINING_EXPECTED_SCORE: float = 0.6
 MODEL_TRAINING_OVERFITTING_UNDERFITTING_THERSHOLD: float  = 0.05
+
+
+TRAINING_BUCKET_NANE: str = 'network-security144'

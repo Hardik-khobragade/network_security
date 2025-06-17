@@ -79,6 +79,7 @@ class DataValidation:
     
     def initiate_data_validation(self)->DataIngestionArtifacts:
         try:
+            logging.info("Data Validation started")
             train_file_path = self.data_ingestion_artifacts.training_file_path
             test_file_path = self.data_ingestion_artifacts.testing_file_path
             
@@ -115,7 +116,9 @@ class DataValidation:
                 invalid_train_file_path=None,
                 invalid_test_file_path=None,
                 drift_report_file_path=self.data_validation_config.drift_report)
+            logging.info("Data validation complete")
             return data_validation_artifact
+            
             
         except Exception as e:
             raise NetworkSecurityException(e,sys)

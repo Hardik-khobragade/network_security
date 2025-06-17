@@ -79,13 +79,14 @@ class DataTransformation:
             save_numpy_array_data(self.data_transformation_config.transformed_test_file_path,array=test_arr)
             save_object(self.data_transformation_config.transformed_object_file_path,preprocessor_obj)
             
+            save_object("final_model/preprocessor.pkl",preprocessor_obj)
             
             data_transformed_artifact=DataTransformationArtifacts(
                 transformed_train_file_path=self.data_transformation_config.transformed_train_file_path,
                 transformed_test_file_path=self.data_transformation_config.transformed_test_file_path,
                 transformed_object_file_path=self.data_transformation_config.transformed_object_file_path
             )
-
+            logging.info("Data Transformed completely")
             return data_transformed_artifact
         except Exception as e:
             raise NetworkSecurityException(e,sys)

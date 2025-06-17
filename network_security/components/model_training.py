@@ -3,10 +3,8 @@ import sys
 import mlflow
 import dagshub
 
-mlflow.set_tracking_uri("file:///d:/MLDL in UDemy/NetworkSecurity/mlruns")
 dagshub.init(repo_owner='hardikkhobragade78', repo_name='network_security', mlflow=True)
 
-# mlflow.set_tracking_uri("https://dagshub.com/hardikkhobragade78/network_security.mlflow")
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from network_security.exception import NetworkSecurityException
@@ -34,7 +32,7 @@ from sklearn.ensemble import (
 
 
 
-class ModelTraner:
+class ModelTrainer:
     def __init__(self, model_trainer_config:ModelTraninerConfig ,data_transformation_artifacts:DataTransformationArtifacts):
         try:
             self.model_trainer_config=model_trainer_config
@@ -47,19 +45,21 @@ class ModelTraner:
             f1_score=classification_metrics.f1_score
             precision_score=classification_metrics.precision_score
             recall_score=classification_metrics.recall_score
-
+            
             mlflow.log_metric("f1_score", f1_score)
             mlflow.log_metric("precision_score", precision_score)
             mlflow.log_metric("recall_score", recall_score)
         
-            mlflow.sklearn.log_model(best_model, name='model')
+            mlflow.sklearn.log_model(best_model, artifact_path='model')
+
     
-    
+            
+  
             
     def train_model(self, X_train, y_train,X_test,y_test):
         try:
             model = {
-                #"LinearRegression": LinearRegression(),
+                # "LinearRegression": LinearRegression(),
                 # "DecisionTreeClassifier": DecisionTreeClassifier(),
                 # "KNeighborsClassifier": KNeighborsClassifier(),
                 # "AdaBoostClassifier": AdaBoostClassifier(),
@@ -68,25 +68,25 @@ class ModelTraner:
             }
             
             params = {
-                #"LinearRegression": {},
+                # "LinearRegression": {},
                 # "DecisionTreeClassifier": {
                 # "criterion": ["gini", "entropy"],
-                # # "max_depth": [None, 10, 20, 30],
-                # # "min_samples_split": [2, 5, 10]
+                # "max_depth": [None, 10, 20, 30],
+                # "min_samples_split": [2, 5, 10]
                 # },
                 # "KNeighborsClassifier": {
                 # "n_neighbors": [3, 5, 7],
-                # # "weights": ["uniform", "distance"],
-                # # "algorithm": ["auto", "ball_tree", "kd_tree", "brute"]
+                # "weights": ["uniform", "distance"],
+                # "algorithm": ["auto", "ball_tree", "kd_tree", "brute"]
                 # },
                 # "AdaBoostClassifier": {
                 # "n_estimators": [50, 100, 200],
                 # "learning_rate": [0.01, 0.1, 1.0]
                 # },
                 # "GradientBoostingClassifier": {
-                # # "n_estimators": [100, 150, 200],
+                # "n_estimators": [100, 150, 200],
                 # "learning_rate": [0.01, 0.1, 0.2],
-                # # "max_depth": [3, 5, 7]
+                # "max_depth": [3, 5, 7]
                 # },
                 "RandomForestClassifier": {
                 "n_estimators": [100, 200, 300],
@@ -115,6 +115,8 @@ class ModelTraner:
             self.track_mlflow(best_model,classification_train_metric)
             self.track_mlflow(best_model,classification_test_metric)
             
+
+            
             processor=load_object(file_path=self.data_transformation_artifacts.transformed_object_file_path)
             
             model_dir_path=os.path.dirname(self.model_trainer_config.trained_model_file_path)
@@ -123,6 +125,9 @@ class ModelTraner:
             
             Network_model=NetworkModel(preprocessor=processor,model=best_model)
             save_object(self.model_trainer_config.trained_model_file_path,obj=Network_model)
+            
+            
+            save_object("final_model/model.pkl",best_model)
             
             model_trainner_artifact=ModelTraningArtifacts(trained_model_file_path=self.model_trainer_config.trained_model_file_path,
                                                           train_metrics_artifact=classification_train_metric,

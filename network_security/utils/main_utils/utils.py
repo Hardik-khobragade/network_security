@@ -68,7 +68,7 @@ def save_object(file_path: str, obj: object) -> None:
 def load_object(file_path: str)->object:
     try:
         if not os.path.exists(file_path):
-            raise Exception(f"Error saving object to file: {file_path} - {e}")
+            raise Exception(f"File does not exis: {file_path} ")
         logging.info("entered the load_object function")
         with open (file_path,"rb") as file_obj:
             pickle.load(file_obj)
@@ -76,7 +76,7 @@ def load_object(file_path: str)->object:
     except Exception as e:
         logging.error(f"Error saving object to file: {file_path} - {e}")
         raise NetworkSecurityException(e, sys)
-    
+
     
 def load_numpy_array_data(file_path:str)->np.array:
     try:
